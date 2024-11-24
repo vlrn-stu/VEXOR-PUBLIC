@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VEXOR.CLI", "VEXOR.CLI\VEXOR.CLI.csproj", "{E3B7739C-395D-4742-9A58-4C9944440D8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VEXOR.Obfuscation", "VEXOR.Obfuscation\VEXOR.Obfuscation.csproj", "{923FCC0D-6273-4835-A8AD-7D83B8954802}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VEXOR.TestApplication", "VEXOR.TestApplication\VEXOR.TestApplication.csproj", "{A74D428E-52D4-487A-83AA-C8CB5D3BD775}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VEXOR.GUI", "VEXOR.GUI\VEXOR.GUI.csproj", "{89C7A1E5-88A0-4D72-A0AB-0E97ECA322F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VEXOR.TestApplicationFramework", "VEXOR.TestApplicationFramework\VEXOR.TestApplicationFramework.csproj", "{2F7F1860-9037-4C27-B60E-18F47F478CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VEXOR.TestApplication.Obfuscated", "VEXOR.TestApplication.Obfuscated\VEXOR.TestApplication.Obfuscated.csproj", "{A47C5D3C-3142-4D8B-BC42-A314F4904A77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3B7739C-395D-4742-9A58-4C9944440D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B7739C-395D-4742-9A58-4C9944440D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B7739C-395D-4742-9A58-4C9944440D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B7739C-395D-4742-9A58-4C9944440D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{923FCC0D-6273-4835-A8AD-7D83B8954802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{923FCC0D-6273-4835-A8AD-7D83B8954802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{923FCC0D-6273-4835-A8AD-7D83B8954802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{923FCC0D-6273-4835-A8AD-7D83B8954802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A74D428E-52D4-487A-83AA-C8CB5D3BD775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74D428E-52D4-487A-83AA-C8CB5D3BD775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74D428E-52D4-487A-83AA-C8CB5D3BD775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74D428E-52D4-487A-83AA-C8CB5D3BD775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89C7A1E5-88A0-4D72-A0AB-0E97ECA322F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89C7A1E5-88A0-4D72-A0AB-0E97ECA322F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89C7A1E5-88A0-4D72-A0AB-0E97ECA322F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89C7A1E5-88A0-4D72-A0AB-0E97ECA322F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7F1860-9037-4C27-B60E-18F47F478CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7F1860-9037-4C27-B60E-18F47F478CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7F1860-9037-4C27-B60E-18F47F478CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7F1860-9037-4C27-B60E-18F47F478CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A47C5D3C-3142-4D8B-BC42-A314F4904A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A47C5D3C-3142-4D8B-BC42-A314F4904A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A47C5D3C-3142-4D8B-BC42-A314F4904A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A47C5D3C-3142-4D8B-BC42-A314F4904A77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC0182E2-588A-4622-BFA1-9D50A02A3C35}
+	EndGlobalSection
+EndGlobal
