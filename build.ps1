@@ -20,34 +20,38 @@ $cliWindowsName = "VEXOR.CLI.Windows.v$version"
 $cliLinuxName = "VEXOR.CLI.Linux.v$version"
 $guiWindowsName = "VEXOR.GUI.Windows.v$version"
 
-try {
-    Write-Host "Building Windows CLI..."
-    cd $windowsCLI
-    dotnet publish -c Release -r win-x64 --self-contained -o "$outputFolder\CLI-Windows"
-    Compress-Archive -Path "$outputFolder\CLI-Windows\*" -DestinationPath "$outputFolder\$cliWindowsName.zip"
-    Write-Host "Windows CLI build and packaging complete."
-} catch {
-    Write-Host "Windows CLI build failed. Skipping."
+# Helper function to handle warnings and errors
+function SafeBuild {
+    param (
+        [string]$buildPath,
+        [string]$runtime,
+        [string]$outputSubFolder,
+        [string]$zipName
+    )
+    try {
+        Write-Host "Building for runtime: $runtime..."
+        cd $buildPath
+        dotnet publish -c Release -r $runtime --self-contained -o "$outputFolder\$outputSubFolder" 2>&1 | Tee-Object -Variable buildOutput
+
+        # Check if the output folder contains any files
+        if (Get-ChildItem -Path "$outputFolder\$outputSubFolder" -Recurse | Where-Object { $_.Name -match ".*" }) {
+            Write-Host "$runtime build succeeded. Packaging files..."
+            Compress-Archive -Path "$outputFolder\$outputSubFolder\*" -DestinationPath "$outputFolder\$zipName.zip"
+        } else {
+            Write-Host "$runtime build failed. Skipping packaging."
+        }
+    } catch {
+        Write-Host "An error occurred during $runtime build. Skipping."
+    }
 }
 
-try {
-    Write-Host "Building Linux CLI..."
-    cd $linuxCLI
-    dotnet publish -c Release -r linux-x64 --self-contained -o "$outputFolder\CLI-Linux"
-    Compress-Archive -Path "$outputFolder\CLI-Linux\*" -DestinationPath "$outputFolder\$cliLinuxName.zip"
-    Write-Host "Linux CLI build and packaging complete."
-} catch {
-    Write-Host "Linux CLI build failed. Skipping."
-}
+# Build Windows CLI
+SafeBuild -buildPath $windowsCLI -runtime "win-x64" -outputSubFolder "CLI-Windows" -zipName $cliWindowsName
 
-try {
-    Write-Host "Building Windows GUI..."
-    cd $windowsGUI
-    dotnet publish -c Release -r win-x64 --self-contained -o "$outputFolder\GUI-Windows"
-    Compress-Archive -Path "$outputFolder\GUI-Windows\*" -DestinationPath "$outputFolder\$guiWindowsName.zip"
-    Write-Host "Windows GUI build and packaging complete."
-} catch {
-    Write-Host "Windows GUI build failed. Skipping."
-}
+# Build Linux CLI
+SafeBuild -buildPath $linuxCLI -runtime "linux-x64" -outputSubFolder "CLI-Linux" -zipName $cliLinuxName
+
+# Build Windows GUI
+SafeBuild -buildPath $windowsGUI -runtime "win-x64" -outputSubFolder "GUI-Windows" -zipName $guiWindowsName
 
 Write-Host "Build process complete! Release ZIP files are located in $outputFolder."
