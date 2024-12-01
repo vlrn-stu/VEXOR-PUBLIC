@@ -66,9 +66,26 @@ namespace VEXOR.Obfuscation
             int counter = _counter;
             foreach (var method in _methodNames)
             {
-                result = result.Replace(method, $"a{counter}");
+                int index = result.IndexOf(method);
+                string replacement = $"a{counter}";
+
+                while (index != -1)
+                {
+                    // Check if the method is followed by '('
+                    if (index + method.Length < result.Length && result[index + method.Length] == '(')
+                    {
+                        // Replace only if the condition is met
+                        result = result.Substring(0, index) + replacement + result.Substring(index + method.Length);
+                    }
+
+                    // Move to the next occurrence of the method name
+                    index = result.IndexOf(method, index + 1);
+                }
+
+                // Increment counter after processing all occurrences of the current method
                 counter++;
             }
+
 
             return result;
         }
